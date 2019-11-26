@@ -142,9 +142,9 @@ void getPath(List L, Graph G, int u) {
       // load up the list with parent tracings
       int distance = (G->distances)[u];
       clear(L);
-      prepend(L, u);
+      append(L, u);
       for (int i = 0; i < distance; i++) {
-        prepend(L, (G->parents)[u]);
+        append(L, (G->parents)[u]);
         u = (G->parents)[u];
       }
 
@@ -170,6 +170,7 @@ void makeNull(Graph G) {
   for (int i = 0; i <= getOrder(G); i++) {
     clear(G->adjacencyLists[i]);
   }
+  G->size = 0;
 }
 
 // addEdge()

@@ -465,13 +465,13 @@ void printList(FILE* out, List L) {
   int previous_state = index(L);
 
   // move the cursor to the front of L
-  moveFront(L);
+  moveBack(L);
 
   // loop through and print each element to the output file 'Output.txt' in
   // the format specified by pa.
   while(L->cursor != NULL) {
     fprintf(out, "%d " , get(L));
-    moveNext(L);
+    movePrev(L);
   }
   fprintf(out, "\n");
 
