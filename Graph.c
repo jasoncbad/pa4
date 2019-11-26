@@ -121,7 +121,7 @@ int getParent(Graph G, int u) {
 // returns the distance of the path s-u where 's' is the source
 // and 'u' is the given parameter
 // PRE: 1 <= u <= getOrder(G)
-int getDistance(Graph G, int u) {
+int getDist(Graph G, int u) {
   if (u >= 1 && u <= getOrder(G)) {
     return (G->distances)[u];
   }

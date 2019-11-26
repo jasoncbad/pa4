@@ -21,7 +21,7 @@ int getOrder(Graph G);
 int getSize(Graph G);
 int getSource(Graph G);
 int getParent(Graph G, int u);
-int getDistance(Graph G, int u);
+int getDist(Graph G, int u);
 void getPath(List L, Graph G, int u);
 
 /** Manipulation procedures **/
