@@ -143,7 +143,7 @@ void getPath(List L, Graph G, int u) {
     if ((G->distances)[u] > 0) {
       // load up the list with parent tracings
       int distance = (G->distances)[u];
-
+      clear(L);
       prepend(L, u);
       for (int i = 0; i < distance; i++) {
         prepend(L, (G->parents)[u]);
