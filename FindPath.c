@@ -74,8 +74,8 @@ int main(int argc, char** argv) {
       if (back(pathList) == NIL) {
         fprintf(outFile, "The distance from %d to %d is infinity\n", u, v);
         fprintf(outFile, "No %d-%d path exists\n\n", u,v);
-      } else if (length(pathList) - 1 >= 0) {
-        fprintf(outFile, "The distance from %d to %d is %d\n", u, v, length(pathList) - 1);
+      } else {
+        fprintf(outFile, "The distance from %d to %d is %d\n", u, v, getDist(G, v));
         fprintf(outFile, "A shortest %d-%d path is: ", u,v);
         printList(outFile, pathList);
         fprintf(outFile, "\n");

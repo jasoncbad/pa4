@@ -54,6 +54,7 @@ Graph newGraph(int n) {
 
   for (int i = 0; i < n+1; i++) {
     G->distances[i] = INF;
+    G->parents[i] = NIL;
   }
 
   // initialize remaining values..
@@ -134,41 +135,23 @@ int getDist(Graph G, int u) {
 
 // getPath()
 // appends to List L the path from s to u
-// PRE: 1 <= u <= getOrder(G)
+// PRE: 1 <= u <= getOrder(G) and getSource(G) != NIL
 void getPath(List L, Graph G, int u) {
-  if ((u >= 1 && u <= getOrder(G))) {
+  if ((u >= 1 && u <= getOrder(G)) && (getSource(G) != NIL)) {
 
-    //List temp = newList();
-
-    if ((G->distances)[u] > 0) {
-      // load up the list with parent tracings
-      int distance = (G->distances)[u];
-      clear(L);
-      prepend(L, u);
-      for (int i = 0; i < distance; i++) {
-        prepend(L, (G->parents)[u]);
-        u = (G->parents)[u];
-      }
-
-    /*
-    moveBack(L); moveFront(temp);
-    while(index(temp) != -1) {
-      append(L, get(temp));
-      moveNext(temp);
+    if (getDist(G,u) == INF) {
+        append(L, NIL);
+        return;
     }
 
-    // destroy temp
-    freeList(&temp);
-    temp = NULL;*/
-
-  } else if ((G->distances)[u] == -1) {
-      append(L, NIL);
-      return;
-  } else if ((G->distances)[u] == 0) {
-    clear(L);
-    return;
-  }
-
+    int x = u;
+    append(L, x);
+    moveBack(L);
+    for (int i = 0; i < getDist(G,u); i++) {
+      x = getParent(G, x);
+      insertBefore(L, x);
+      movePrev(L);
+    }
 
   } else {
       printf("\tgetPath() -- precondition failed to pass! nothing done in this call");
@@ -355,6 +338,12 @@ void BFS(Graph G, int s) {
 
 
   }
+
+  // print out everything:
+  for (int i = 1; i <= getOrder(G); i++) {
+    printf("%d:\t\tPARENT: %d \t\tDISTANCE: %d\t\tCOLOR: %d\n", i, G->parents[i], G->distances[i], G->colors[i]);
+  }
+  printf("\n");
 
   // houskeeping
   freeList(&queue);

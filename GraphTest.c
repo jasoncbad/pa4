@@ -27,10 +27,22 @@ int main(int argc, char* argv[]) {
   addEdge(G,3,1);
   addEdge(G,6,2);
   addEdge(G,6,3);
-  addEdge(G,4,3);
-  addEdge(G,6,4);
+  //addEdge(G,4,3);
+  //addEdge(G,6,4);
   addEdge(G,5,3);
   addEdge(G,6,5);
+
+  printf("Running BFS on this graph with 6 as the source\n");
+  BFS(G, 6);
+
+  List result = newList();
+  getPath(result, G, 4);
+
+  fprintf(stdout, "The distance from %d to %d is %d\n", 6, 4, getDist(G, 4));
+  fprintf(stdout, "A shortest %d-%d path is: ", 6,4);
+  printList(stdout, result);
+  fprintf(stdout, "\n");
+
 
   // print the graph contents
   printf("\nGraphAdjacency list representation:\n");
