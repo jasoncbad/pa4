@@ -339,10 +339,10 @@ void BFS(Graph G, int s) {
   }
 
   // print out everything:
-  for (int i = 1; i <= getOrder(G); i++) {
+  /*for (int i = 1; i <= getOrder(G); i++) {
     printf("%d:\t\tPARENT: %d \t\tDISTANCE: %d\t\tCOLOR: %d\n", i, G->parents[i], G->distances[i], G->colors[i]);
   }
-  printf("\n");
+  printf("\n");*/
 
   // houskeeping
   freeList(&queue);
