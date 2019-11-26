@@ -147,12 +147,11 @@ void getPath(List L, Graph G, int u) {
     }
 
     int x = u;
-    append(L, x);
+    prepend(L, x);
     moveBack(L);
     for (int i = 0; i < getDist(G,u); i++) {
       x = getParent(G, x);
-      insertBefore(L, x);
-      movePrev(L);
+      prepend(L, x);
     }
 
   } else {
