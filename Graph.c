@@ -161,8 +161,8 @@ void getPath(List L, Graph G, int u) {
     freeList(&temp);
     temp = NULL;*/
 
-  } else if ((G->distances)[u] == 0) {
-      append(L, NIL);
+  } else if ((G->distances)[u] == INF) {
+      append(L, INF);
       return;
   }
 
