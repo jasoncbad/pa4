@@ -69,6 +69,7 @@ int main(int argc, char** argv) {
     } else {
       // perform BFS with the source being u
       BFS(G, u);
+      clear(pathList);
       getPath(pathList, G, v);
 
       if (back(pathList) == NIL) {

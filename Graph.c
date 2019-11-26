@@ -139,8 +139,6 @@ int getDist(Graph G, int u) {
 void getPath(List L, Graph G, int u) {
   if ((u >= 1 && u <= getOrder(G)) && (getSource(G) != NIL)) {
 
-    clear(L);
-
     if (getDist(G,u) == INF) {
         append(L, NIL);
         return;
