@@ -115,7 +115,7 @@ int getSource(Graph G) {
 // returns the parent of the given vertice 'u'.
 // PRE: 1 <= u <= getOrder(G)
 int getParent(Graph G, int u) {
-  if ((G->parents)[u+1] > 0 && ((getOrder(G) >= u )&&( u >= 1))) {
+  if (((getOrder(G) >= u )&&( u >= 1))) {
     return (G->parents)[u];
   } else {
     return NIL;
