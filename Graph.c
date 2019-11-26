@@ -138,18 +138,19 @@ int getDist(Graph G, int u) {
 void getPath(List L, Graph G, int u) {
   if ((u >= 1 && u <= getOrder(G))) {
 
-    List temp = newList();
+    //List temp = newList();
 
     if ((G->distances)[u] > 0) {
       // load up the list with parent tracings
       int distance = (G->distances)[u];
-      clear(temp);
-      prepend(temp, u);
+      clear(L);
+      prepend(L, u);
       for (int i = 0; i < distance; i++) {
-        prepend(temp, (G->parents)[u]);
+        prepend(L, (G->parents)[u]);
         u = (G->parents)[u];
       }
 
+    /*
     moveBack(L); moveFront(temp);
     while(index(temp) != -1) {
       append(L, get(temp));
@@ -158,7 +159,7 @@ void getPath(List L, Graph G, int u) {
 
     // destroy temp
     freeList(&temp);
-    temp = NULL;
+    temp = NULL;*/
 
     } else {
       clear(L);
