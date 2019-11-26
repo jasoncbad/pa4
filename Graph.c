@@ -286,7 +286,7 @@ void BFS(Graph G, int s) {
   G->lastSource = s;
 
   // initialize propertis of all x where x is in V(G) - {s}
-  for (int i = 1; i <= getOrder(G); i++) {
+  for (int i = 0; i <= getOrder(G); i++) {
     if (i == s) continue; // except s
 
     *((G->colors) + i) =  0; // 0 = white
