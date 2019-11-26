@@ -52,6 +52,10 @@ Graph newGraph(int n) {
   // initialize the array of ints
   G->distances = malloc(sizeof(int) * (n + 1));
 
+  for (int i = 0; i < n+1; i++) {
+    G->distances[i] = INF;
+  }
+
   // initialize remaining values..
   G->order = n;
   G->size = 0;
