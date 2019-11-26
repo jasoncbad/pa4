@@ -144,11 +144,6 @@ void getPath(List L, Graph G, int u) {
       // load up the list with parent tracings
       int distance = (G->distances)[u];
 
-      if (distance == INF) {
-        return; 
-      }
-
-      clear(L);
       prepend(L, u);
       for (int i = 0; i < distance; i++) {
         prepend(L, (G->parents)[u]);
@@ -166,10 +161,14 @@ void getPath(List L, Graph G, int u) {
     freeList(&temp);
     temp = NULL;*/
 
-    } else {
-      clear(L);
+  } else if ((G->distances)[u] == 0) {
+      append(L, NIL);
       return;
-    }
+  } else if ((G->distances)[u] == INF) {
+      append(L, INF);
+      return;
+  }
+
 
   } else {
       printf("\tgetPath() -- precondition failed to pass! nothing done in this call");
