@@ -228,6 +228,7 @@ void addEdge(Graph G, int u, int v) {
         //printf("\t\tappended v to the U list (end case)\n");
       }
     }
+    G->size = getSize(G) + 2;
     return;
   } else {
       printf("\taddEdge() -- precondition failed to pass! nothing done in this call");
@@ -267,6 +268,7 @@ void addArc(Graph G, int u, int v) {
         //printf("\t\tappended v to the U list (end case)\n");
       }
     }
+    G->size++;
   } else {
     printf("\taddEdge() -- precondition failed to pass! nothing done in this call");
     return;
