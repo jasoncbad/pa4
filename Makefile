@@ -5,10 +5,10 @@
 #  UCSC ID: jaanmont | 1742317
 #
 #-----------------------------------
-all : Arithmetic
+all : FindPath
 
-Arithmetic : Arithmetic.o BigInteger.o List.o
-	gcc -o Arithmetic Arithmetic.o BigInteger.o List.o
+FindPath : FindPath.o Graph.o List.o
+	gcc -o FindPath FindPath.o Graph.o List.o
 
 ListTest : ListTest.o List.o
 	gcc -o ListTest ListTest.o List.o
@@ -19,6 +19,15 @@ ListTest.o : ListTest.c List.h
 List.o : List.c List.h
 	gcc -c -std=c99 -Wall List.c
 
+GraphTest : GraphTest.o Graph.o List.o
+	gcc -o GraphTest GraphTest.o Graph.o List.o
+
+GraphTest.o : GraphTest.c Graph.h
+	gcc -c -std=c99 -Wall GraphTest.c
+
+Graph.o : Graph.c Graph.h
+	gcc -c -std=c99 -Wall Graph.c
+
 BigIntegerTest : BigIntegerTest.o BigInteger.o List.o
 	gcc -o BigIntegerTest BigIntegerTest.o BigInteger.o List.o
 
@@ -28,8 +37,8 @@ BigIntegerTest.o : BigIntegerTest.c BigInteger.h
 BigInteger.o :	BigInteger.c BigInteger.h
 	gcc -c -std=c99 -Wall BigInteger.c
 
-Arithmetic.o : Arithmetic.c BigInteger.h
-	gcc -c -std=c99 -Wall Arithmetic.c
+FindPath.o : FindPath.c Graph.h
+	gcc -c -std=c99 -Wall FindPath.c
 
 clean :
-	rm -f *.o Arithmetic ListTest BigIntegerTest
+	rm -f *.o FindPath ListTest BigIntegerTest GraphTest

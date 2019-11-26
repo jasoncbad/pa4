@@ -1,10 +1,10 @@
 /* --------------------------------
 
-  ListTest.c | PA3
+  ListTest.c | PA4
   Programmer: Jay Montoya
   UCSC ID: jaanmont | 1742317
 
-  Test client for List ADT for pa3.
+  Test client for List ADT for pa4.
 
 -----------------------------------
 */
