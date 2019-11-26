@@ -232,7 +232,7 @@ void addEdge(Graph G, int u, int v) {
         //printf("\t\tappended v to the U list (end case)\n");
       }
     }
-    G->size = getSize(G) + 2;
+    G->size = getSize(G) + 1;
     return;
   } else {
       printf("\taddEdge() -- precondition failed to pass! nothing done in this call");
